@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2013 RIPE NCC
+ * All rights reserved.
+ */
+
 package net.ripe.db.whois.common.rpsl;
 
 import com.google.common.collect.Sets;
@@ -10,19 +15,17 @@ public class AttributeTemplate {
     public static enum Requirement {
         MANDATORY("mandatory"),
         OPTIONAL("optional"),
-        GENERATED("generated"),
-        DEPRECATED("optional"); // deprecated fields seen as optional from outside perspective
+        GENERATED("generated");
 
-        private final String externalName;
+        private final String name;
 
-        private Requirement(final String externalName) {
-            this.externalName = externalName;
+        private Requirement(final String name) {
+            this.name = name;
         }
 
-        public String getExternalName() {
-            return externalName;
+        public String getName() {
+            return name;
         }
-
     }
 
     public static enum Cardinality {
@@ -107,7 +110,7 @@ public class AttributeTemplate {
     @Override
     public String toString() {
         final String name = attributeType.getName() + ":";
-        final String requirementString = "[" + requirement.getExternalName() + "]";
+        final String requirementString = "[" + requirement.getName() + "]";
         final String cardinalityString = "[" + cardinality.getName() + "]";
         final String keyString;
 

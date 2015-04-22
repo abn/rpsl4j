@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2013 RIPE NCC
+ * All rights reserved.
+ */
+
 package net.ripe.db.whois.common.rpsl;
 
 import com.google.common.collect.Maps;
@@ -168,11 +173,6 @@ public enum AttributeType implements Documented {
             .doc("Identifies the country.")
             .syntax(COUNTRY_CODE_SYNTAX)),
 
-    CREATED(new Builder("created", "cr")
-            .doc("This attributes reflects when the object was created in\n" +
-                 "ISO8601 format (yyyy-MM-dd'T'HH:mm:ssZ).")
-            .syntax(GENERATED_SYNTAX)),
-
     DEFAULT(new Builder("default", "df")
             .doc("Specifies default routing policies.")
             .syntax(DEFAULT_SYNTAX)),
@@ -287,11 +287,6 @@ public enum AttributeType implements Documented {
     LANGUAGE(new Builder("language", "ln")
             .doc("Identifies the language.")
             .syntax(LANGUAGE_CODE_SYNTAX)),
-
-    LAST_MODIFIED(new Builder("last-modified", "lm")
-            .doc("This attributes reflects when the object was last changed in\n"+
-                    "ISO8601 format (yyyy-MM-dd'T'HH:mm:ssZ).")
-            .syntax(GENERATED_SYNTAX)),
 
     LOCAL_AS(new Builder("local-as", "la")
             .doc("Specifies the autonomous system that operates the router.")
@@ -559,7 +554,7 @@ public enum AttributeType implements Documented {
             .syntax(POETIC_FORM_SYNTAX)),
 
     REFERRAL_BY(new Builder("referral-by", "rb")
-            .doc("Deprecated attribute referencing a mntner name. This will be removed in the near future.")
+            .doc("Mandatory historical attribute referencing a mntner name. Not used. Suggest setting it to this mntner name.")
             .syntax(REFERRAL_SYNTAX)
             .references(ObjectType.MNTNER)),
 
